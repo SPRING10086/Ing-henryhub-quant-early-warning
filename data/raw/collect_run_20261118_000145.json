@@ -1,0 +1,152 @@
+{
+  "results": [
+    {
+      "source": "fred_dhhngsp",
+      "status": "ok",
+      "files": [
+        "fred_dhhngsp_20261118_000138.csv"
+      ],
+      "note": "无 key 源，已落盘。缺失值符号 '.' 原样保留。",
+      "collected_at": "2026-11-17T16:01:38.437854+00:00"
+    },
+    {
+      "source": "eia_storage_wkly",
+      "status": "skipped_no_key",
+      "files": [],
+      "note": "待 key 补跑：未检测到环境变量 EIA_API_KEY。脚本已含 env 加载 + 元数据确认 series + 分页拉取 + 重试退避，key 到位后直接运行。",
+      "collected_at": "2026-11-17T16:01:38.440796+00:00"
+    },
+    {
+      "source": "eia_drygas_prod_monthly",
+      "status": "skipped_no_key",
+      "files": [],
+      "note": "待 key 补跑：未检测到环境变量 EIA_API_KEY。脚本已含 env 加载 + 元数据确认 series + 分页拉取 + 重试退避，key 到位后直接运行。",
+      "collected_at": "2026-11-17T16:01:38.440796+00:00"
+    },
+    {
+      "source": "eia_lng_exports_monthly",
+      "status": "skipped_no_key",
+      "files": [],
+      "note": "待 key 补跑：未检测到环境变量 EIA_API_KEY。脚本已含 env 加载 + 元数据确认 series + 分页拉取 + 重试退避，key 到位后直接运行。",
+      "collected_at": "2026-11-17T16:01:38.440796+00:00"
+    },
+    {
+      "source": "noaa_hdd_states",
+      "status": "ok",
+      "files": [
+        "noaa_hdd_states_20261118_000145.txt",
+        "noaa_hdd_states_20261118_000145.csv"
+      ],
+      "note": "无 key 源，已落盘；-999 等缺失标记已置空（NaN）。解析行数 15312。",
+      "collected_at": "2026-11-17T16:01:45.857686+00:00"
+    },
+    {
+      "source": "gie_agsi_eu",
+      "status": "skipped_no_key",
+      "files": [],
+      "note": "待 key 补跑：未检测到环境变量 GIE_AGSI_API_KEY。脚本已含 x-key 头 + 本地缓存游标 + 增量拉取 + 重试退避，key 到位后直接运行。",
+      "collected_at": "2026-11-17T16:01:45.859016+00:00"
+    }
+  ],
+  "manifest": {
+    "generated_at": "2026-11-17T16:01:45.859016+00:00",
+    "project": "lng-trade-research P1 数据采集",
+    "sources": {
+      "fred_dhhngsp": {
+        "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DHHNGSP",
+        "api_key_required": false,
+        "note": "Henry Hub 现货，CSV 直下，缺失符号 '.'。"
+      },
+      "eia_storage_wkly": {
+        "endpoint": "https://api.eia.gov/v2/natural-gas/stor/wkly/data/",
+        "api_key_required": true,
+        "key_configured": false,
+        "series_hypothesis": [
+          "NGMEPP0"
+        ],
+        "series_confirmed": false,
+        "note": "series 代码须 key 到位后用 v2 元数据 facets 端点最终确认。"
+      },
+      "eia_drygas_prod_monthly": {
+        "endpoint": "https://api.eia.gov/v2/natural-gas/prod/sum/data/",
+        "api_key_required": true,
+        "key_configured": false,
+        "series_hypothesis": [
+          "N9070US2"
+        ],
+        "series_confirmed": false,
+        "note": "series 代码须 key 到位后用 v2 元数据 facets 端点最终确认。"
+      },
+      "eia_lng_exports_monthly": {
+        "endpoint": "https://api.eia.gov/v2/natural-gas/move/expc/data/",
+        "api_key_required": true,
+        "key_configured": false,
+        "series_hypothesis": [
+          "N9130US2"
+        ],
+        "series_confirmed": false,
+        "note": "series 代码须 key 到位后用 v2 元数据 facets 端点最终确认。"
+      },
+      "noaa_hdd_states": {
+        "endpoint": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/latest/StatesCONUS.Heating.txt",
+        "api_key_required": false,
+        "note": "人口加权 HDD（按州 + CONUS）；CPC 已迁移为管道符宽表，-999 等缺失标记解析为 NaN。"
+      },
+      "gie_agsi_eu": {
+        "endpoint": "https://agsi.gie.eu/api",
+        "api_key_required": true,
+        "key_configured": false,
+        "note": "欧盟储气充满度（TTF 代理），country=eu，本地缓存游标 + 仅增量拉取。"
+      }
+    },
+    "results": [
+      {
+        "source": "fred_dhhngsp",
+        "status": "ok",
+        "files": [
+          "fred_dhhngsp_20261118_000138.csv"
+        ],
+        "note": "无 key 源，已落盘。缺失值符号 '.' 原样保留。",
+        "collected_at": "2026-11-17T16:01:38.437854+00:00"
+      },
+      {
+        "source": "eia_storage_wkly",
+        "status": "skipped_no_key",
+        "files": [],
+        "note": "待 key 补跑：未检测到环境变量 EIA_API_KEY。脚本已含 env 加载 + 元数据确认 series + 分页拉取 + 重试退避，key 到位后直接运行。",
+        "collected_at": "2026-11-17T16:01:38.440796+00:00"
+      },
+      {
+        "source": "eia_drygas_prod_monthly",
+        "status": "skipped_no_key",
+        "files": [],
+        "note": "待 key 补跑：未检测到环境变量 EIA_API_KEY。脚本已含 env 加载 + 元数据确认 series + 分页拉取 + 重试退避，key 到位后直接运行。",
+        "collected_at": "2026-11-17T16:01:38.440796+00:00"
+      },
+      {
+        "source": "eia_lng_exports_monthly",
+        "status": "skipped_no_key",
+        "files": [],
+        "note": "待 key 补跑：未检测到环境变量 EIA_API_KEY。脚本已含 env 加载 + 元数据确认 series + 分页拉取 + 重试退避，key 到位后直接运行。",
+        "collected_at": "2026-11-17T16:01:38.440796+00:00"
+      },
+      {
+        "source": "noaa_hdd_states",
+        "status": "ok",
+        "files": [
+          "noaa_hdd_states_20261118_000145.txt",
+          "noaa_hdd_states_20261118_000145.csv"
+        ],
+        "note": "无 key 源，已落盘；-999 等缺失标记已置空（NaN）。解析行数 15312。",
+        "collected_at": "2026-11-17T16:01:45.857686+00:00"
+      },
+      {
+        "source": "gie_agsi_eu",
+        "status": "skipped_no_key",
+        "files": [],
+        "note": "待 key 补跑：未检测到环境变量 GIE_AGSI_API_KEY。脚本已含 x-key 头 + 本地缓存游标 + 增量拉取 + 重试退避，key 到位后直接运行。",
+        "collected_at": "2026-11-17T16:01:45.859016+00:00"
+      }
+    ]
+  }
+}

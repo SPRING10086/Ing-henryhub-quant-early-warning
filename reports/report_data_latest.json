@@ -1,0 +1,96 @@
+{
+  "generated_at": "2026-11-18",
+  "feature_week": "2026-11-13",
+  "model_week": "2026-10-02",
+  "henry_hub_avg": 2.9633333333333334,
+  "storage_bcf": 3862.0,
+  "sd": 0.3748403210853591,
+  "sd_5yr_mean": 3808.6,
+  "sd_5yr_std": 142.46066123670772,
+  "hdd_anomaly_4wk": -89.08878399000935,
+  "supply_shock_4wk_z": 2.3270136673840045,
+  "gie_full_pct": 70.76049386074294,
+  "eu_storage_deviation": -17.8510914699486,
+  "production_mmcf": 3590584.0,
+  "production_month_used": "2026-08",
+  "lng_export_mmcf": 514617.0,
+  "sd_week": "2026-11-06",
+  "month": "2026-08",
+  "apparent_supply_mmcf": "3590584.0",
+  "apparent_demand_mmcf": "2978967.0",
+  "gap_rate": -0.170339142601872,
+  "storage_change_bcf": "97.0",
+  "v1_class": "中性",
+  "v1_p_up": 0.4654431294479828,
+  "logit_p_up": 0.4520092083526,
+  "lgbm_p_up": 0.36356883684482827,
+  "consensus": "三模型一致看空",
+  "risk_flags": [
+    {
+      "id": "R1",
+      "name": "寒潮持续",
+      "yellow": false,
+      "red": false
+    },
+    {
+      "id": "R2",
+      "name": "LNG 出口扰动",
+      "yellow": false,
+      "red": false
+    },
+    {
+      "id": "R3",
+      "name": "欧盟储气低位",
+      "yellow": true,
+      "red": false
+    },
+    {
+      "id": "R4",
+      "name": "高波动区间",
+      "yellow": false,
+      "red": false
+    }
+  ],
+  "active_risks": [
+    {
+      "id": "R3",
+      "name": "欧盟储气低位",
+      "yellow": true,
+      "red": false
+    }
+  ],
+  "eu_dev_z": -1.466420749706661,
+  "hdd_anom_z": -0.00824380895494963,
+  "lng_z52": null,
+  "hh_vol8": 0.03167439999343501,
+  "hr": {
+    "v1": "56.3%",
+    "logit": "52.2%",
+    "lgbm": "55.1%",
+    "inertia": "51.4%"
+  },
+  "hr_raw": {
+    "v1": 0.562753036437247,
+    "logit": 0.5222672064777328,
+    "lgbm": 0.5506072874493927,
+    "inertia": 0.5141700404858299
+  },
+  "scen": {
+    "heating": "63.3%",
+    "non_heating": "49.7%",
+    "shock_2022": "63.8%",
+    "freeport": "68.4%"
+  },
+  "n_oos": 247,
+  "n_folds": 19,
+  "auc": {
+    "logit": "0.5414",
+    "lgbm": "0.5417"
+  },
+  "v1_weights": {
+    "sd": 0.0,
+    "hdd": 0.0,
+    "supply": 0.8,
+    "eu": 0.2
+  }
+}

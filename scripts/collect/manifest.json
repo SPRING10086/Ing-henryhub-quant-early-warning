@@ -1,0 +1,135 @@
+{
+  "generated_at": "2026-11-17T17:37:05.934099+00:00",
+  "project": "lng-trade-research P1 数据采集",
+  "sources": {
+    "fred_dhhngsp": {
+      "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DHHNGSP",
+      "api_key_required": false,
+      "key_configured": false,
+      "series_hypothesis": null,
+      "series_confirmed": false,
+      "note": "Henry Hub 现货，CSV 直下，缺失以空串表示。"
+    },
+    "eia_storage_wkly": {
+      "endpoint": "https://api.eia.gov/v2/natural-gas/stor/wkly/data/",
+      "api_key_required": true,
+      "key_configured": true,
+      "series_hypothesis": [
+        "NW2_EPG0_SWO_R48_BCF"
+      ],
+      "series_confirmed": true,
+      "note": "周储气（Lower 48 working gas, BCF），series 已 facets 确认。"
+    },
+    "eia_drygas_prod_monthly": {
+      "endpoint": "https://api.eia.gov/v2/natural-gas/prod/sum/data/",
+      "api_key_required": true,
+      "key_configured": true,
+      "series_hypothesis": [
+        "N9070US2"
+      ],
+      "series_confirmed": true,
+      "note": "U.S. Dry Production（MMcf）——EIA v2 仅月度，无周频产量路由；合并表按月值前向填充到周频。"
+    },
+    "eia_lng_exports_monthly": {
+      "endpoint": "https://api.eia.gov/v2/natural-gas/move/poe2/data/",
+      "api_key_required": true,
+      "key_configured": true,
+      "series_hypothesis": [
+        "N9133US2"
+      ],
+      "series_confirmed": true,
+      "note": "Liquefied U.S. LNG Exports（MMcf）——EIA v2 仅月度，无周频 LNG 路由；合并表按月值前向填充到周频。"
+    },
+    "noaa_hdd_states": {
+      "endpoint": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/latest/StatesCONUS.Heating.txt",
+      "api_key_required": false,
+      "key_configured": false,
+      "series_hypothesis": null,
+      "series_confirmed": false,
+      "note": "人口加权 HDD（按州 + CONUS）当前年（latest 端点）。"
+    },
+    "noaa_hdd_states_hist": {
+      "endpoint": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/<year>/StatesCONUS.Heating.txt",
+      "api_key_required": false,
+      "key_configured": false,
+      "series_hypothesis": null,
+      "series_confirmed": false,
+      "note": "人口加权 HDD 历史（2010 至今，逐年归档拼接），供 10 年均值 / 异常基线。"
+    },
+    "gie_agsi_eu": {
+      "endpoint": "https://agsi.gie.eu/api",
+      "api_key_required": true,
+      "key_configured": true,
+      "series_hypothesis": null,
+      "series_confirmed": false,
+      "note": "欧盟储气充满度（TTF 代理）。country=eu 直取不可用，改为欧洲 20 国体积加权聚合；本地缓存游标 + 仅增量拉取。"
+    }
+  },
+  "results": [
+    {
+      "source": "fred_dhhngsp",
+      "status": "ok",
+      "files": [
+        "fred_dhhngsp_20261118_000138.csv"
+      ],
+      "note": "Henry Hub 现货，CSV 直下，缺失以空串表示。",
+      "collected_at": "2026-11-17T17:37:05.931884+00:00"
+    },
+    {
+      "source": "eia_storage_wkly",
+      "status": "ok",
+      "files": [
+        "eia_storage_wkly_20261118_005436.json"
+      ],
+      "note": "周储气（Lower 48 working gas, BCF），series 已 facets 确认。",
+      "collected_at": "2026-11-17T17:37:05.933108+00:00"
+    },
+    {
+      "source": "eia_drygas_prod_monthly",
+      "status": "ok",
+      "files": [
+        "eia_drygas_prod_monthly_20261118_005437.json"
+      ],
+      "note": "U.S. Dry Production（MMcf）——EIA v2 仅月度，无周频产量路由；合并表按月值前向填充到周频。",
+      "collected_at": "2026-11-17T17:37:05.933108+00:00"
+    },
+    {
+      "source": "eia_lng_exports_monthly",
+      "status": "ok",
+      "files": [
+        "eia_lng_exports_monthly_20261118_005439.json"
+      ],
+      "note": "Liquefied U.S. LNG Exports（MMcf）——EIA v2 仅月度，无周频 LNG 路由；合并表按月值前向填充到周频。",
+      "collected_at": "2026-11-17T17:37:05.934099+00:00"
+    },
+    {
+      "source": "noaa_hdd_states",
+      "status": "ok",
+      "files": [
+        "noaa_hdd_states_20261118_000145.csv",
+        "noaa_hdd_states_20261118_000145.txt"
+      ],
+      "note": "人口加权 HDD（按州 + CONUS）当前年（latest 端点）。",
+      "collected_at": "2026-11-17T17:37:05.934099+00:00"
+    },
+    {
+      "source": "noaa_hdd_states_hist",
+      "status": "ok",
+      "files": [
+        "noaa_hdd_states_hist_20261118_001237.csv",
+        "noaa_hdd_states_hist_20261118_001237.txt"
+      ],
+      "note": "人口加权 HDD 历史（2010 至今，逐年归档拼接），供 10 年均值 / 异常基线。",
+      "collected_at": "2026-11-17T17:37:05.934099+00:00"
+    },
+    {
+      "source": "gie_agsi_eu",
+      "status": "ok",
+      "files": [
+        "gie_agsi_eu_20261118_013648.json"
+      ],
+      "note": "欧盟储气充满度（TTF 代理）。country=eu 直取不可用，改为欧洲 20 国体积加权聚合；本地缓存游标 + 仅增量拉取。",
+      "collected_at": "2026-11-17T17:37:05.934099+00:00"
+    }
+  ]
+}

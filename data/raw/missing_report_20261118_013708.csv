@@ -1,0 +1,10 @@
+﻿source,file,fields,time_start,time_end,total_rows,missing_rows,missing_rate,status,note
+fred_dhhngsp,fred_dhhngsp_20261118_000138.csv,"observation_date, DHHNGSP",1997-01-07,2026-11-11,7787,2059,0.264415,ok,
+eia_storage_wkly,eia_storage_wkly_20261118_005436.json,"area-name, duoarea, period, process, process-name, product, product-name, series, series-description, units, value",2010-01-01,2026-11-06,880,0,0.000000,ok,
+eia_drygas_prod_monthly,eia_drygas_prod_monthly_20261118_005437.json,"area-name, duoarea, period, process, process-name, product, product-name, series, series-description, units, value",2010-01,2026-08,200,0,0.000000,ok,
+eia_lng_exports_monthly,eia_lng_exports_monthly_20261118_005439.json,"area-name, duoarea, period, process, process-name, product, product-name, series, series-description, units, value",2010-01,2026-08,200,0,0.000000,ok,
+noaa_hdd_states,,,,,,,,ok(原始文本),原始文本已落盘（非表格，不做缺失率统计）
+noaa_hdd_states,noaa_hdd_states_20261118_000145.csv,"date, region, hdd",20260101,20261115,15312,0,0.000000,ok,
+gie_agsi_eu,gie_agsi_eu_20261118_013648.json,"countries_reported, full, gasDayStart, workingGasVolume",2011-01-01,2026-11-15,5798,0,0.000000,ok,
+noaa_hdd_states_hist,,,,,,,,ok(原始文本),原始文本已落盘（非表格，不做缺失率统计）
+noaa_hdd_states_hist,noaa_hdd_states_hist_20261118_001237.csv,"date, region, hdd",20100101,20251231,280512,0,0.000000,ok,

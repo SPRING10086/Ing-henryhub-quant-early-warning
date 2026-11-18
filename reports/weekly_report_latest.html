@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天然气研判周报 · 2026-11-13</title>
+<style>
+  :root { --ink:#1a1d24; --muted:#6b7280; --line:#e5e7eb; --accent:#0f6f9f; --warn:#b45309; --bad:#b91c1c; --ok:#15803d; --bg:#f6f7f9; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; }
+  .wrap { max-width: 920px; margin: 24px auto; padding: 0 20px; }
+  header { border-bottom: 2px solid var(--ink); padding-bottom: 12px; margin-bottom: 18px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .meta { color: var(--muted); font-size: 13px; }
+  section { background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-bottom:14px; }
+  h2 { font-size: 16px; margin: 0 0 10px; padding-bottom: 6px; border-bottom:1px solid var(--line); }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { border:1px solid var(--line); padding: 6px 8px; text-align:left; vertical-align:top; }
+  th { background:#f0f2f5; font-weight:600; }
+  .kpi { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+  .kpi .card { flex:1 1 180px; border:1px solid var(--line); border-radius:8px; padding:10px 12px; background:#fafbfc; }
+  .kpi .card .v { font-size: 20px; font-weight:700; }
+  .kpi .card .l { font-size:12px; color:var(--muted); }
+  .field { color: var(--muted); font-size: 12px; }
+  .tag { display:inline-block; padding:1px 8px; border-radius:999px; font-size:12px; font-weight:600; }
+  .tag.ok { background:#e7f6ec; color:var(--ok); }
+  .tag.warn { background:#fef3e2; color:var(--warn); }
+  .tag.bad { background:#fde8e8; color:var(--bad); }
+  .tag.mut { background:#eef1f5; color:var(--muted); }
+  .up { color:var(--ok); font-weight:700; }
+  .down { color:var(--bad); font-weight:700; }
+  .disclaimer { background:#fff7ed; border:1px solid #fdba74; color:#7c2d12; border-radius:10px; padding:12px 16px; font-size:13px; }
+  code { background:#f0f2f5; padding:1px 5px; border-radius:4px; font-size:12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>天然气（Henry Hub）研判周报</h1>
+  <div class="meta">
+    基本面数据截至 <strong>2026-11-13</strong> · 模型读数截至 <strong>2026-10-02</strong>（OOS Walk-Forward）· 生成于 2026-11-18
+  </div>
+</header>
+
+<!-- 1. 核心结论 -->
+<section>
+  <h2>① 核心结论</h2>
+  <div class="kpi">
+    <div class="card"><div class="l">松紧等级（v1 规则压力评分）</div>
+      <div class="v">中性</div></div>
+    <div class="card"><div class="l">三模型方向</div>
+      <div class="v">三模型一致看空</div></div>
+    <div class="card"><div class="l">当前周均价（历史事实，非预测）</div>
+      <div class="v">2.96 USD/MMBtu</div></div>
+    <div class="card"><div class="l">触发风险标签</div>
+      <div class="v">1 项</div></div>
+  </div>
+  <p>
+    综合 v1 松紧等级 <strong>中性</strong>、三模型方向 <strong>三模型一致看空</strong>，
+    当前基本面口径：库存偏离度 SD=<strong>0.37</strong>
+    <span class="field">（storage_deviation_weekly.csv.sd）</span>，
+    欧盟储气偏离 <strong>-17.85</strong> pct
+    <span class="field">（features_weekly.csv.eu_storage_deviation）</span>。
+    本报告仅输出方向概率与松紧等级，不含任何价格点位预测。
+  </p>
+  <p class="field" style="margin:6px 0 0">
+    口径说明：v1 输出两套口径——<strong>松紧等级</strong>（三档：宽松/中性/偏紧，来自 v1_class）与
+    <strong>方向</strong>（二值：看多/看空，来自 P(up)&gt;0.5）；「三模型一致看空」指方向口径，
+    与「松紧等级 中性」不矛盾。
+  </p>
+</section>
+
+<!-- 2. 供需证据 -->
+<section>
+  <h2>② 供需证据</h2>
+  <table>
+    <tr><th>指标</th><th>数值</th><th>来源字段</th></tr>
+    <tr><td>地下储气（Lower-48 工作气）</td>
+      <td>3862 Bcf</td>
+      <td class="field">storage_deviation_weekly.csv.storage_bcf</td></tr>
+    <tr><td>库存偏离度 SD</td>
+      <td>0.375（5 年均值 3808.6 / 标准差 142.5）</td>
+      <td class="field">storage_deviation_weekly.csv.sd</td></tr>
+    <tr><td>HDD 4 周异常（相对 10 年均值）</td>
+      <td>-89.1</td>
+      <td class="field">features_weekly.csv.hdd_anomaly_4wk</td></tr>
+    <tr><td>供给冲击 4 周 Z（产量）</td>
+      <td>2.33</td>
+      <td class="field">features_weekly.csv.supply_shock_4wk_z</td></tr>
+    <tr><td>欧盟储气充满度 / 偏离</td>
+      <td>70.76% / -17.85 pct</td>
+      <td class="field">features_weekly.csv.gie_full_pct / .eu_storage_deviation</td></tr>
+    <tr><td>月频产量（as-of shift 3 月，用 2026-08）</td>
+      <td>3590584 MMcf</td>
+      <td class="field">features_weekly.csv.production_shift13</td></tr>
+    <tr><td>月频 LNG 出口</td>
+      <td>514617 MMcf</td>
+      <td class="field">supply_demand_monthly.csv.lng_export_mmcf</td></tr>
+  </table>
+  <p class="field" style="margin-top:8px">
+    最新月度供需平衡（2026-08）：表观供应 3590584.0 MMcf、表观需求 2978967.0 MMcf、
+    缺口率 -0.17、库存变化 97.0 Bcf
+    <span class="field">（supply_demand_monthly.csv）</span>。
+  </p>
+  <p class="field" style="margin-top:4px">
+    注：储气/SD 取值周为 2026-11-06（周储气周四发布，滞后 1 周），故晚于周报基本面锚定周 2026-11-13。
+  </p>
+</section>
+
+<!-- 3. 价格概率 -->
+<section>
+  <h2>③ 价格概率（仅方向，禁点位）</h2>
+  <table>
+    <tr><th>模型</th><th>P(up) 未来 1 周</th><th>方向</th><th>OOS 方向命中率（247 周）</th></tr>
+    <tr><td>v1 规则压力评分</td>
+      <td>0.465</td>
+      <td><span class="tag mut">中性</span></td>
+      <td>56.3%</td></tr>
+    <tr><td>Logistic（主基线）</td>
+      <td>0.452</td>
+      <td><span class="down">看空</span></td>
+      <td>52.2%</td></tr>
+    <tr><td>LightGBM（对比）</td>
+      <td>0.364</td>
+      <td><span class="down">看空</span></td>
+      <td>55.1%</td></tr>
+    <tr><td>朴素惯性（基准）</td><td>—</td><td>—</td><td>51.4%</td></tr>
+  </table>
+  <p class="field" style="margin-top:6px">
+    P(up) 取 <code>backtest_predictions.csv</code> 的 v1_p_up / logit_p_up / lgbm_p_up；命中率与 AUC
+    （Logistic 0.5414 / LightGBM 0.5417）引自 <code>docs/backtest_report.md</code>。三模型在 247 OOS 周上均未对随机/惯性基准取得统计显著增量，方向概率仅作参考。
+  </p>
+</section>
+
+<!-- 4. 风险清单 -->
+<section>
+  <h2>④ 风险清单（引用 docs/risk_label_rules.md）</h2>
+  <table>
+    <tr><th>标签</th><th>名称</th><th>当期状态</th><th>触发口径</th></tr>
+    
+    <tr>
+      <td><strong>R1</strong></td>
+      <td>寒潮持续</td>
+      <td>
+        <span class="tag mut">未触发</span>
+      </td>
+      <td class="field">
+        hdd_anom_z ≥ +1(黄)/+2(红)
+        
+        
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td><strong>R2</strong></td>
+      <td>LNG 出口扰动</td>
+      <td>
+        <span class="tag mut">未触发</span>
+      </td>
+      <td class="field">
+        
+        lng_z52 ≤ -1(黄)/-2(红) 骤降
+        
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td><strong>R3</strong></td>
+      <td>欧盟储气低位</td>
+      <td>
+        <span class="tag warn">黄（关注）</span>
+        
+      </td>
+      <td class="field">
+        
+        
+        eu_dev_z ≤ -1(黄)/-2(红)
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td><strong>R4</strong></td>
+      <td>高波动区间</td>
+      <td>
+        <span class="tag mut">未触发</span>
+      </td>
+      <td class="field">
+        
+        
+        
+        hh_vol8 ≥ P75(黄)/P95(红)
+      </td>
+    </tr>
+    
+  </table>
+  <p class="field" style="margin-top:6px">
+    当期风险快照：eu_dev_z=-1.47、
+    hdd_anom_z=-0.01、
+    hh_vol8=0.0317
+    <span class="field">（risk_eval_weekly.csv）</span>。阈值与「组合使用建议」详见 <code>docs/risk_label_rules.md</code>；R4 高波动触发时方向置信度应整体下调。
+  </p>
+</section>
+
+<!-- 5. 历史对标 -->
+<section>
+  <h2>⑤ 历史对标（docs/failure_case_library.md / backtest_report.md）</h2>
+  <table>
+    <tr><th>场景</th><th>LightGBM OOS 命中率</th><th>备注</th></tr>
+    <tr><td>采暖期</td><td>63.3%</td><td rowspan="4" class="field">模型优势集中于采暖/冲击期，非采暖期接近随机（0.497）。</td></tr>
+    <tr><td>非采暖期</td><td>49.7%</td></tr>
+    <tr><td>2022 冲击期</td><td>63.8%</td></tr>
+    <tr><td>Freeport 扰动期</td><td>68.4%</td></tr>
+  </table>
+  <p style="margin-top:8px">
+    代表性失效案例（详见 <code>docs/failure_case_library.md</code>）：
+  </p>
+  <ul style="font-size:14px">
+    <li><strong>案例 1 · 2022 欧洲能源危机</strong>：v1 在 fold 0（2022-01-14~04-08）命中率仅 0.231，结构性 regime shift 下纯基本面规则踏空风险溢价。</li>
+    <li><strong>案例 2 · 2024 暖冬</strong>：Logistic 在 fold 8（2024-01-12~04-05）逆势抄底，命中率 0.385；持续阴跌中线性模型反复误判。</li>
+    <li><strong>案例 3 · 2025Q4 冬季反弹</strong>：三模型集体踏空（v1 0.231 / Logit 0.385 / LGBM 0.308），朴素惯性 0.615 显著胜出。</li>
+  </ul>
+  <p class="field">v1 权重（首期确定后全程固定）：sd=0 / hdd=0 / supply=0.8 / eu=0.2（backtest_report.md）。</p>
+</section>
+
+<div class="disclaimer">
+  <strong>免责声明：</strong>本报告由个人研究项目自动生成，<strong>不构成任何交易建议</strong>。所有模型在样本外回测中未对随机/惯性基准取得统计显著增量；方向概率与松紧等级仅供研究参考，不代表对未来价格的预测，亦不构成买卖依据。市场有风险，决策需独立判断。
+</div>
+
+<footer class="meta" style="margin-top:14px">
+  数据可溯源至 data/raw（FRED DHHNGSP / EIA v2 / NOAA CPC HDD / GIE-AGSI），字段口径见 docs/data_dictionary.md。生成脚本：scripts/report_render/render_report.py。
+</footer>
+</div>
+</body>
+</html>
